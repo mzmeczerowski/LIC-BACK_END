@@ -1,5 +1,5 @@
-<h1 text-color="#d22d2d">Hotel web application</h1>
-<h2>Used techologies :</h2>
+<h1>Hotel web application</h1>
+<h4>Used techologies :</h4>
 <ol>
   <li>Spring boot application</li>
   <li>Spring Security</li>
