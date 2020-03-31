@@ -1,0 +1,36 @@
+body
+{
+	background-color: #2F3336;
+	color: #f1f1f1;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 17px;
+}
+
+h1
+{
+	font-size: 36px;
+	font-weight: 400;
+	color: #32a6b4;
+	margin: 20px;
+}
+
+
+/*.navbar-nav li:hover>.dropdown-menu*/
+/*{*/
+/*	display: block;*/
+/*}*/
+
+
+.navbar
+{
+	min-height: 57px;
+}
+
+.bg-hotel
+{
+	background-color: #2195a3 !important;
+}
+
+
+
+

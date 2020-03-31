@@ -15,5 +15,4 @@ public class RoomType {
     String description;
     double PrisePerNight;
 
-
 }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Witaj [[${#httpServletRequest.remoteUser}]]</title>
+    <meta name="description" content="Strona domowa Hotelu">
+    <meta name="keywords" content="hotel, noclegi, nocleg, zakwaterowanie">
+    <meta name="author" content="Marcel Zmeczerowski">
+    <meta http-equiv="X-Ua-Compatible" content="IE=edge">
+
+    <link rel="shortcut icon" href="/main/img/shortcut_icon.webp">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/main/css/main.css">
+    <link rel="stylesheet" href="/fontello/css/fontello.css" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+<header>
+
+    <nav class="navbar navbar-dark bg-hotel navbar-expand-md">
+
+        <a class="navbar-brand" href="/" ><i class="icon-bed"></i> Hotel.pl</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainmenu">
+
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/home"> Start </a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="/hello"> Hello </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+</header>
+
+<main>
+    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+    </form>
+</main>
+
+</body>
+</html>
