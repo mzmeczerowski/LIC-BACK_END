@@ -11,7 +11,7 @@
     <groupId>pl.edu.ug</groupId>
     <artifactId>hotel_backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>hotel_backend</name>
+    <name>hotel</name>
     <description>hotel backend system</description>
 
     <properties>
