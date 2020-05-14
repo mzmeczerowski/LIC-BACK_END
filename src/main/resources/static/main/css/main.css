@@ -31,6 +31,75 @@ h1
 	background-color: #2195a3 !important;
 }
 
+.form-box
+{
+	padding: 20px;
+	background-color: #32a6b4;
+	border: 3px solid #1286b4;
+	border-radius: 20px;
+	width: 50%;
+	margin: 0 auto;
+	box-shadow: 3px 3px 20px 5px rgba(100,100,100,0.9);
+}
+
+.form-box-reg
+{
+	background-color: #31b473;
+	border: 3px solid #119453;
+}
+
+.btn-primary
+{
+	background-color: #1286b4;
+}
+
+.btn-success
+{
+	background-color: #119453;
+}
+
+#logout-info
+{
+	color: #0b2e13;
+}
+
+.title
+{
+	text-align: center;
+	font-size: 45px;
+	margin:10vh 0 0 0;
+	font-weight: bold;
+}
+
+footer
+{
+	position: fixed;
+	bottom: 0;
+	margin-top: auto;
+	padding: 10px;
+	background-color: #262626;
+	color: #d0d0d0;
+	font-size: 15px;
+	font-weight: bold;
+	text-align: center;
+	width: 100%;
+}
+
+#log-out
+{
+	font-family:fontello;
+	font-size: 26px;
+	color: white;
+	border: none;
+	background-color: inherit;
+}
+
+#log-out:hover
+{
+	color: #cccccc;
+	cursor: pointer;
+}
+
 
 
 

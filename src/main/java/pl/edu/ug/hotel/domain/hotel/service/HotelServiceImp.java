@@ -1,6 +1,7 @@
 package pl.edu.ug.hotel.domain.hotel.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.edu.ug.hotel.domain.hotel.entity.Hotel;
 import pl.edu.ug.hotel.domain.hotel.service.iface.IHotelService;
@@ -12,17 +13,20 @@ import java.util.List;
 public class HotelServiceImp implements IHotelService {
 
     IHotelRepository iHotelRepository;
+    PasswordEncoder passwordEncoder;
 
     @Autowired
-    HotelServiceImp(IHotelRepository iHotelRepository) {
+    HotelServiceImp(IHotelRepository iHotelRepository, PasswordEncoder passwordEncoder) {
         this.iHotelRepository = iHotelRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
 
     @Override
     public Long save(Hotel hotel) {
+        hotel.getDirector().setPassword(passwordEncoder.encode(hotel.getDirector().getPassword()));
         return iHotelRepository.save(hotel).getId();
-    }
+}
 
     @Override
     public Hotel getById(Long id) {

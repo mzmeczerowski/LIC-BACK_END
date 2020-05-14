@@ -29,7 +29,7 @@
 
         <a class="navbar-brand" href="/" ><i class="icon-bed"></i> Hotel.pl</a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
+        <button class="navbar-toggler ml-auto mr-3" type="button" data-toggle="collapse" data-target="#mainmenu" aria-controls="mainmenu" aria-expanded="false" aria-label="Przełącznik nawigacji">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -38,27 +38,38 @@
             <ul class="navbar-nav mr-auto">
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/home"> Start </a>
-                </li>
+            <a class="nav-link" href="/home"> Start </a>
+            </li>
 
-                <li class="nav-item active">
-                    <a class="nav-link" href="/hello"> Hello </a>
-                </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/hello"> Hello </a>
+            </li>
 
             </ul>
 
         </div>
+
+        <form th:action="@{/logout}" method="post">
+            <input id="log-out" class="ml-auto" type="submit" value="&#xe800;" />
+        </form>
 
     </nav>
 
 </header>
 
 <main>
-    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
-    <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sign Out"/>
-    </form>
+    <h1 class="text-center m-5" th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
 </main>
+
+<footer>
+    Strona została stworzona na potrzeby Pracy Licencjackiej &copy Wszelkie prawa zastrzeżone
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+<script src="/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 </html>

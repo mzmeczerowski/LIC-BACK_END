@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <title>Logowanie do serwisu</title>
-    <meta name="description" content="Logowanie">
-    <meta name="keywords" content="login, logowanie">
+    <meta name="description" content="Rejestracja">
+    <meta name="keywords" content="rejestracja, zarejestrowanie, hotel rejstr">
     <meta name="author" content="Marcel Zmeczerowski">
     <meta http-equiv="X-Ua-Compatible" content="IE=edge">
 
@@ -24,18 +24,20 @@
 </head>
 <body>
     <header>
-        <h1 class="title">Witamy na naszej stronie www Hotelu</h1>
-        <h1 class="m-5 text-center" style="font-size: 20px;">Aby w pełni kożystać z naszych usług proszę się zalogować</h1>
+        <h1 class="title">Dziękujemy, że postanowiłeś skozystać z naszych usług</h1>
+        <h1 class="m-5 text-center" style="font-size: 20px;">Wypełnij poniższe pola aby dokonać rejestracji</h1>
     </header>
 
     <main>
         <div class="container">
-            <div class="form-box">
-                <div th:if="${param.error}" class="text-center text-danger">
-                    Nieprawidłowe hasło lub login.
+            <div class="form-box form-box-reg">
+                <!--/*@thymesVar id="login_error" type="java"*/-->
+                <div th:if="${login_error}" class="text-center text-danger">
+                    Taki login już istnieje w bazie danych.
                 </div>
-                <div th:if="${param.logout}" id="logout-info" class="text-center">
-                    Jesteś wylogowany.
+                <!--/*@thymesVar id="email_error" type="java"*/-->
+                <div th:if="${email_error}" id="logout-info" class="text-center">
+                    Taki email już isnieje w bazie danych.
                 </div>
                 <form th:action="@{/login}" method="post">
                     <div class="form-group">
@@ -46,11 +48,11 @@
                         <label for="password">Hasło</label>
                         <input class="form-control" type="password" name="password" id="password" placeholder="password"/>
                     </div>
-                    <div class="form-group">
-                        <a class="alert-link" th:href="@{/registration}">Nie posiadam jeszcze konta. Załóż konto</a>
-                    </div>
+<!--                    <div class="form-group">-->
+<!--                        <a class="alert-link" th:href="@{/registration}">Nie posiadam jeszcze konta. Załóż konto</a>-->
+<!--                    </div>-->
                     <div class="form-group text-center">
-                        <input  class="btn btn-primary w-50" type="submit" value="Potwierdź"/>
+                        <input  class="btn btn-primary w-50" type="submit" value="Załóż konto"/>
                     </div>
                 </form>
             </div>

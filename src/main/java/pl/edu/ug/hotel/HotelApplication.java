@@ -14,13 +14,19 @@ import pl.edu.ug.hotel.domain.director.entity.Director;
 import pl.edu.ug.hotel.domain.director.service.DirectorServiceImp;
 import pl.edu.ug.hotel.domain.hotel.entity.Hotel;
 import pl.edu.ug.hotel.domain.hotel.service.HotelServiceImp;
+import pl.edu.ug.hotel.domain.receptionist.entity.Receptionist;
 import pl.edu.ug.hotel.domain.receptionist.service.ReceptionistServiceImp;
+import pl.edu.ug.hotel.domain.reservation.entity.Reservation;
 import pl.edu.ug.hotel.domain.reservation.service.ReservationServiceImp;
 import pl.edu.ug.hotel.domain.room.entity.Room;
 import pl.edu.ug.hotel.domain.room.service.RoomServiceImp;
 import pl.edu.ug.hotel.domain.roomType.entity.RoomType;
 import pl.edu.ug.hotel.domain.roomType.service.RoomTypeServiceImp;
+import pl.edu.ug.hotel.domain.user.entity.User;
 import pl.edu.ug.hotel.domain.user.service.UserServiceImp;
+
+import java.time.LocalDate;
+import java.time.Month;
 
 @SpringBootApplication
 public class HotelApplication {
@@ -63,28 +69,33 @@ public class HotelApplication {
             Address address1 = new Address("Sopot", "83-100", "Grunwaldzka", "211", "");
             Address address2 = new Address("Gdańśk", "83-015", "Grunwaldzka", "158", "");
             Director director = new Director("Jan", "Kowalski", "997998999", address2, "janko", "kowalski123");
-
             Hotel hotel = new Hotel("Sheraton", "58763010203", address1, roomService.getAll(), director);
-
-            addressService.save(address1);
-            addressService.save(address2);
-            directorService.save(director);
             hotelService.save(hotel);
 
-            String haslo = "abcd";
-            String zaszyfrowane = passwordEncoder.encode(haslo);
-            log.info("To jest hasło: " + haslo);
-            log.info("To zaszyfrwane: " + zaszyfrowane);
-            log.info("To zaszyfrwane jeszcze raz: " + passwordEncoder.encode(haslo));
+            // save example Receptionist
+            Address address3 = new Address("Gdańsk", "80-010", "Słowackiego", "3d", "12");
+            Receptionist receptionist = new Receptionist("Danuta", "Nowak", "123456789", address3, "danka", "nowakdanuta", 2399.32);
 
-//            // save example Receptionist
-//            receptionistService.save(new Receptionist());
-//
-//            // save example Reservation
-//            reservationService.save(new Reservation());
-//
-//            // save example User
-//            userService.save(new User());
+            receptionistService.save(receptionist);
+
+
+            // save example User
+            Address address4 = new Address("Starogard Gd", "83-212", "Nowatorów", "1F", "7");
+            User user = new User("Adam", "Mickiewicz", "3452650001", address4, "amickiewicz", "adas");
+            userService.save(user);
+
+            // save example Reservation
+
+            Reservation reservation = new Reservation(
+                    LocalDate.of(2020, Month.JANUARY, 31),
+                    LocalDate.of(2020, Month.FEBRUARY, 02),
+                    user,
+                    room1,
+                    true,
+                    false
+                    );
+            reservationService.save(reservation);
+
 
         };
     }

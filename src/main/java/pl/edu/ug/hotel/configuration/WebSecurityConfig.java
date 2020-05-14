@@ -20,7 +20,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/main/**", "/bootstrap/**", "/fontello/**").permitAll()
-                .antMatchers("/", "/home").permitAll()
+                .antMatchers("/", "/home", "/registration").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -31,20 +31,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll();
 
     }
-
-    @Bean
-    @Override
-    public UserDetailsService userDetailsService() {
-        UserDetails user =
-                User.withDefaultPasswordEncoder()
-                        .username("user")
-                        .password("password")
-                        .roles("USER")
-                        .build();
-
-        return new InMemoryUserDetailsManager(user);
-    }
-
 
     @Bean
     public PasswordEncoder passwordEncoder() {

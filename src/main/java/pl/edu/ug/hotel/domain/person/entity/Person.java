@@ -24,6 +24,6 @@ public class Person {
     @NonNull
     String phoneNumber;
     @NonNull
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     Address address;
 }

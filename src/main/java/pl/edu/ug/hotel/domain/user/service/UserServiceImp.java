@@ -55,4 +55,9 @@ public class UserServiceImp implements IUserService {
     public void delete(User user) {
         iUserRepository.delete(user);
     }
+
+    @Override
+    public User findByUsername(String username) {
+        return iUserRepository.findByUsername(username);
+    }
 }

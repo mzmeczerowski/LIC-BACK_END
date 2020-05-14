@@ -22,4 +22,7 @@ public interface IUserService {
     void deleteById(Long id);
     void delete(User user);
 
+    //Others
+    User findByUsername(String username);
+
 }
